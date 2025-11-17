@@ -3,175 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comprog reviewer ni kerr boy?</title>
-
+<title>C++ 60-Item Quiz</title>
 <style>
- body {
-   background: #0a0f24;
-   color: #e0e0e0;
-   font-family: Arial, sans-serif;
-   padding: 20px;
- }
-
- .container {
-   max-width: 900px;
-   margin: auto;
-   background: #11182f;
-   padding: 25px;
-   border-radius: 12px;
-   box-shadow: 0 0 20px rgba(0,255,255,0.15);
- }
-
- h1 {
-   text-align: center;
-   color: #6df6ff;
-   text-shadow: 0 0 10px #00f7ff;
- }
-
- .question {
-   padding: 15px;
-   margin-bottom: 20px;
-   background: #162040;
-   border-left: 4px solid #00eaff;
-   border-radius: 8px;
- }
-
- button {
-   background: #00eaff;
-   border: none;
-   color: #000;
-   padding: 12px 25px;
-   border-radius: 8px;
-   cursor: pointer;
-   font-size: 16px;
-   margin-top: 15px;
- }
-
- button:hover {
-   background: #00bcd4;
- }
-
- #result {
-   font-size: 22px;
-   margin-top: 20px;
-   color: #00f7ff;
-   text-shadow: 0 0 10px #00eaff;
- }
-
- #answers {
-   margin-top: 20px;
-   padding: 15px;
-   background: #131b33;
-   border-left: 4px solid #6df6ff;
-   border-radius: 8px;
- }
+body {
+background: #0a0f24;
+color: #e0e0e0;
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+.container {
+max-width: 900px;
+margin: auto;
+background: #11182f;
+padding: 25px;
+border-radius: 12px;
+box-shadow: 0 0 20px rgba(0,255,255,0.15);
+}
+h1 {
+text-align: center;
+color: #6df6ff;
+text-shadow: 0 0 10px #00f7ff;
+}
+.question {
+padding: 15px;
+margin-bottom: 20px;
+background: #162040;
+border-left: 4px solid #00eaff;
+border-radius: 8px;
+}
+button {
+background: #00eaff;
+border: none;
+color: #000;
+padding: 12px 25px;
+border-radius: 8px;
+cursor: pointer;
+font-size: 16px;
+margin-top: 15px;
+}
+button:hover {
+background: #00bcd4;
+}
+#result {
+font-size: 22px;
+margin-top: 20px;
+color: #00f7ff;
+text-shadow: 0 0 10px #00eaff;
+}
+.answers {
+margin-top: 20px;
+padding: 10px;
+background: #131b33;
+border-left: 4px solid #6df6ff;
+border-radius: 8px;
+}
 </style>
 </head>
 <body>
-
 <div class="container">
-<h1>Comprog reviewer ni kerr boy? ayosss</h1>
-
-<form id="quizForm"></form>
-<button id="submitBtn">Submit mo kay kerr pogi na?</button>
-
-<div id="result"></div>
-<div id="answers"></div>
-</div>
-
-
-<script>
-/* ========== ALL 60 QUESTIONS ============= */
-
-const questions = [
- {q:"Every C++ program must have:", a:["A variable","A comment","A main() function","A class"], correct:2},
- {q:"Which line is a single-line comment?", a:["/* comment */","// comment","<> comment","# comment"], correct:1},
- {q:"Multiple-line comments begin with:", a:["//","--","/*","##"], correct:2},
- {q:"#include is a:", a:["Compiler","Preprocessor directive","Variable","Loop"], correct:1},
- {q:"using namespace std; is used to:", a:["Access standard library","Define variables","Start program","End program"], correct:0},
- {q:"cout is used for:", a:["Input","Output","Looping","Memory"], correct:1},
- {q:"Every C++ statement ends with:", a:[".",":",";","}"], correct:2},
- {q:"Which breaks a line?", a:["/n","\\n","linebreak","endline"], correct:1},
- {q:"endl is used with:", a:["cin","<<",">>","namespace"], correct:1},
- {q:"int stores:", a:["Characters","Decimals","Whole numbers","Strings"], correct:2},
- {q:"float stores:", a:["Boolean values","Whole numbers","Characters","Decimal values"], correct:3},
- {q:"double stores:", a:["7-digit decimals","15-digit decimals","Characters","Booleans"], correct:1},
- {q:"char stores:", a:["Words","Strings","Single character","Arrays"], correct:2},
- {q:"A valid variable name is:", a:["3age","my var","total_sum","float"], correct:2},
- {q:"Reserved words are also called:", a:["Identifiers","Keywords","Libraries","Functions"], correct:1},
- {q:"Assignment operator is:", a:["==","!=","=","++"], correct:2},
- {q:"Which is an arithmetic operator?", a:["&&","+","||","=="], correct:1},
- {q:"Modulus operator returns:", a:["Quotient","Remainder","Average","Power"], correct:1},
- {q:"Prefix increment does what first?", a:["Uses value","Prints value","Increments value","Deletes value"], correct:2},
- {q:"Postfix increment increments:", a:["Before evaluation","After evaluation","Never","Only negative numbers"], correct:1},
- {q:"Flowchart is:", a:["A code editor","Graphical representation of a process","A compiler","A virus"], correct:1},
- {q:"Flowchart START/STOP uses:", a:["Diamond","Rectangle","Oval","Arrow"], correct:2},
- {q:"Decision symbol is:", a:["Rectangle","Diamond","Circle","Triangle"], correct:1},
- {q:"Sequential structure means:", a:["Random execution","Out of order","Line–by–line","Reverse order"], correct:2},
- {q:"Selection structure involves:", a:["Loops","Conditions","Arrays","Pointers"], correct:1},
- {q:"if statement executes when:", a:["Condition is false","Condition is true","Loop ends","User inputs"], correct:1},
- {q:"Nested if means:", a:["Two loops","Function inside function","if inside another if","Two classes"], correct:2},
- {q:"switch is used for:", a:["Multiple comparisons of same variable","Loops","Arrays","Input"], correct:0},
- {q:"while loop runs:", a:["Only once","At least once","While condition is true","Never"], correct:2},
- {q:"do-while runs:", a:["Zero times","At least once","Only when false","Never"], correct:1},
- {q:"for loop is best when:", a:["Unknown repetition","Infinite loop","Known number of repetitions","Only one repetition"], correct:2},
- {q:"Functions are used to:", a:["Cause errors","Reuse code","Slow programs","Hide variables"], correct:1},
- {q:"main() is:", a:["Optional","Required function","Loop","Array"], correct:1},
- {q:"Void function returns:", a:["Integer","String","Nothing","Zero only"], correct:2},
- {q:"Functions with return type must use:", a:["stop","break","return","cout"], correct:2},
- {q:"Arrays store:", a:["Different types","Same type values","Functions","Keywords"], correct:1},
- {q:"Single-dimension array syntax is:", a:["int arr;","int arr[];","int arr[5];","arr int[5];"], correct:2},
- {q:"Two-dimensional array has:", a:["1 index","2 indices","3 indices","Unlimited indices"], correct:1},
- {q:"Indexing in arrays starts at:", a:["1","0","-1","Any number"], correct:1},
- {q:"C++ operator << is:", a:["Extraction","Insertion","Assignment","Comparison"], correct:1},
- {q:"cin uses which operator?", a:[">>","<<","==","||"], correct:0},
- {q:"A loop that never stops is:", a:["While loop always","Infinite loop","do-while","for"], correct:1},
- {q:"break is used to:", a:["Restart program","Exit loop","Add numbers","Stop compiler"], correct:1},
- {q:"continue skips:", a:["Whole loop","Current iteration","Next loop","Condition"], correct:1},
- {q:"Array elements are stored in:", a:["Random order","Contiguous memory","Separate files","Registers only"], correct:1},
- {q:"What is a flowline?", a:["Shows computation","Shows connection/sequence","Shows comment","Shows memory"], correct:1},
- {q:"What type of language is C++?", a:["Low-level only","Middle-level","High-level only","Machine code"], correct:1},
- {q:"BCPL stands for:", a:["Basic Computer Programming Language","Basic Combined Programming Language","Binary Compiled Programming Language","Bell C Programming Language"], correct:1}
-];
-
-/* ========= BUILD QUIZ ============= */
-
-const form = document.getElementById("quizForm");
-
-questions.forEach((item, idx) => {
-  let div = document.createElement("div");
-  div.className = "question";
-
-  let html = `<p><strong>${idx + 1}. ${item.q}</strong></p>`;
-  item.a.forEach((c, i) => {
-    html += `<label><input type="radio" name="q${idx}" value="${i}"> ${c}</label><br>`;
-  });
-
-  div.innerHTML = html;
-  form.appendChild(div);
-});
-
-/* ========= SUBMIT BUTTON ============= */
-
-document.getElementById("submitBtn").addEventListener("click", () => {
-  let score = 0;
-  let details = "";
-
-  questions.forEach((item, idx) => {
-    const choice = document.querySelector(`input[name="q${idx}"]:checked`);
-    const ans = choice ? parseInt(choice.value) : null;
-    
-    if (ans === item.correct) score++;
-
-    details += `<p><strong>${idx + 1}. ${item.q}</strong><br>Correct: ${item.a[item.correct]}</p>`;
-  });
-
-  document.getElementById("result").innerHTML = `Score: ${score} / ${questions.length}`;
-  document.getElementById("answers").innerHTML = `<h3>Answer Key</h3>` + details;
-});
-
-</script>
-
-</body>
+<h1>C++ 60-Item Quiz</h1>
 </html>
-
